@@ -32,8 +32,4 @@ setopt COMPLETE_IN_WORD
 
 # autoload -U colors
 #colors
-source /var/home/bjk/.fleek/init.sh
-export PATH=$PATH:~/.npm-packages/bin
-export EDITOR=nvim
-export VISUAL=nvim
 
