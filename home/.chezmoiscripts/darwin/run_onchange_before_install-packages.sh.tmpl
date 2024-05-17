@@ -4,6 +4,7 @@ set -eufo pipefail
 
 {{ $brews := list
      "age"
+     "atuin"
      "bat"
      "btop"
      "curl"
@@ -11,40 +12,32 @@ set -eufo pipefail
      "duf"
      "eza"
      "fd"
-     "ffmpeg"
      "fzf"
      "gdu"
      "gh"
      "git"
      "git-lfs"
-     "gnu-units"
      "gnupg"
      "go"
      "golangci-lint"
+     "htop"
      "jq"
+     "neovim"
      "node"
-     "pinentry-mac"
-     "pkg-config"
      "ripgrep"
      "shellcheck"
-     "tmux"
+     "starship"
+     "superfile"
      "wget"
-     "xz"
-     "yt-dlp" -}}
+     "xz" -}}
 {{ $casks := list
-     "1password-cli"
-     "balenaetcher"
-     "battery"
      "google-chrome"
-      "iterm2"
+     "iterm2"
      "microsoft-remote-desktop"
      "signal"
      "spotify"
      "tailscale"
-     "telegram"
-     "visual-studio-code"
-     "vlc"
-     "whatsapp" -}}
+     "visual-studio-code" -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}
