@@ -23,7 +23,6 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-export PATH=$PATH:~/.npm-packages/bin
-source ~/.local/share/blesh/ble.sh
 
-source /var/home/bjk/.fleek/init.sh
+source "${XDG_CONFIG_HOME:-$HOME/.config}/bash/.bashrc"
+
