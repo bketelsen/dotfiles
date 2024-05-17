@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $brews := list
+     "age"
+     "atuin"
+     "bat"
+     "btop"
+     "curl"
+     "eza"
+     "fd"
+     "fzf"
+     "gdu"
+     "gh"
+     "git"
+     "git-lfs"
+     "gnupg"
+     "go"
+     "golangci-lint"
+     "htop"
+     "jq"
+     "neovim"
+     "node"
+     "pkg-config"
+     "ripgrep"
+     "shellcheck"
+     "starship"
+     "superfile"
+     "wget"
+     "xz" -}}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+EOF

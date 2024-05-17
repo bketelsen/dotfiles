@@ -1,0 +1,55 @@
+[".oh-my-zsh"]
+    type = "archive"
+    url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    exclude = [
+        "*/.*",
+        "*/templates",
+        "*/themes",
+    ]
+[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    exclude = [
+        "*/.editorconfig",
+        "*/.gitattributes",
+        "*/.github",
+        "*/.gitignore",
+    ]
+
+
+{{- if and (eq .chezmoi.os "linux") .personal (not .ephemeral) }}
+[".local/bin/age"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "FiloSottile/age" (printf "age-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch) | quote }}
+    executable = true
+    path = "age/age"
+[".local/bin/age-keygen"]
+    type = "archive-file"
+    url = {{ gitHubLatestReleaseAssetURL "FiloSottile/age" (printf "age-*-%s-%s.tar.gz" .chezmoi.os .chezmoi.arch) | quote }}
+    executable = true
+    path = "age/age-keygen"
+{{- end }}
+{{- if and (not .ephemeral) (not .headless) }}
+{{-   $fontDir := "" }}
+{{-   if eq .chezmoi.os "darwin" }}
+{{-     $fontDir = "Library/Fonts" }}
+{{-   else if eq .chezmoi.os "linux" }}
+{{-     $fontDir = ".local/share/fonts" }}
+{{-   end }}
+{{-   range (list
+        "MesloLGS NF Regular.ttf"
+        "MesloLGS NF Bold.ttf"
+        "MesloLGS NF Italic.ttf"
+        "MesloLGS NF Bold Italic.ttf") }}
+["{{ $fontDir }}/{{ . }}"]
+    type = "file"
+    url = "https://github.com/romkatv/powerlevel10k-media/raw/master/{{ . }}"
+    refreshPeriod = "168h"
+{{-   end }}
+{{- end }}

@@ -1,0 +1,56 @@
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $brews := list
+     "age"
+     "bat"
+     "btop"
+     "curl"
+     "direnv"
+     "duf"
+     "eza"
+     "fd"
+     "ffmpeg"
+     "fzf"
+     "gdu"
+     "gh"
+     "git"
+     "git-lfs"
+     "gnu-units"
+     "gnupg"
+     "go"
+     "golangci-lint"
+     "jq"
+     "node"
+     "pinentry-mac"
+     "pkg-config"
+     "ripgrep"
+     "shellcheck"
+     "tmux"
+     "wget"
+     "xz"
+     "yt-dlp" -}}
+{{ $casks := list
+     "1password-cli"
+     "balenaetcher"
+     "battery"
+     "google-chrome"
+      "iterm2"
+     "microsoft-remote-desktop"
+     "signal"
+     "spotify"
+     "tailscale"
+     "telegram"
+     "visual-studio-code"
+     "vlc"
+     "whatsapp" -}}
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range ($brews | sortAlpha | uniq) -}}
+brew "{{ . }}"
+{{ end -}}
+{{ range ($casks | sortAlpha | uniq) -}}
+cask "{{ . }}"
+{{ end -}}
+EOF

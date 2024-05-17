@@ -1,0 +1,9 @@
+{{ if  .personal -}}
+#!/bin/sh
+
+wget https://github.com/bitwarden/clients/releases/download/cli-v2024.4.1/bw-linux-2024.4.1.zip
+unzip bw-linux-2024.4.1.zip
+mv bw ~/.local/bin/bw
+chmod +x ~/.local/bin/bw
+rm bw-linux-2024.4.1.zip
+{{ end -}}

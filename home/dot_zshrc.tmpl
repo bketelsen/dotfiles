@@ -1,0 +1,74 @@
+
+# If you come from bash you might have to change your $PATH.
+{{- $paths := list }}
+{{- $homeDir := .chezmoi.homeDir }}
+{{- range $_, $relPath := list "bin" "go/bin" ".cargo/bin" ".local/bin" }}
+{{    $path := joinPath $homeDir $relPath }}
+{{-   if stat $path }}
+{{-     $paths = mustAppend $paths $path }}
+{{-   end }}
+{{- end }}
+{{- if $paths }}
+export PATH={{ toStrings $paths | join ":" }}:$PATH
+{{- end }}
+
+
+# User configuration
+
+autoload -U compinit
+compinit
+
+#allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
+
+setopt autocd
+setopt histignorespace
+setopt rm_star_silent
+
+alias g=git
+alias gnp="git --no-pager"
+{{- if lookPath "bat" }}
+alias cat=bat
+alias catp='bat -pp'
+{{- else if lookPath "batcat" }}
+alias cat=batcat
+{{- end }}
+{{- if lookPath "fdfind" }}
+alias fd=fdfind
+{{- end }}
+{{- if lookPath "eza" }}
+alias ls=eza
+{{- end }}
+{{- if lookPath "atuin" }}
+  eval "$(atuin init zsh)"
+{{- end }}
+{{- if lookPath "direnv" }}
+  eval "$(direnv hook zsh)"
+{{- end }}
+{{- if lookPath "starship" }}
+  eval "$(starship init zsh)"
+{{- end }}
+
+
+{{ if eq .osid "linux-ubuntu" -}}
+export EDITOR=$HOME/.local/bin/nvim
+{{ else -}}
+export EDITOR=nvim
+{{ end -}}
+export GOPATH=$HOME
+export GO111MODULE=on
+{{- if eq .chezmoi.os "darwin" }}
+export HOMEBREW_NO_AUTO_UPDATE=1
+{{- end }}
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/config
+
+
+{{ if stat (joinPath .chezmoi.homeDir ".nvm") }}
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+{{ end }}
+
+{{- /* vim: set filetype=zsh: */}}
