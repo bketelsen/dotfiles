@@ -31,13 +31,9 @@ set -eufo pipefail
      "wget"
      "xz" -}}
 {{ $casks := list
-     "google-chrome"
      "iterm2"
-     "microsoft-remote-desktop"
      "signal"
-     "spotify"
-     "tailscale"
-     "visual-studio-code" -}}
+     "spotify" -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}
