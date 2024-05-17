@@ -10,8 +10,6 @@
 
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
-.config/karabiner
-.hammerspoon
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
@@ -37,10 +35,7 @@ Documents
 .ssh/id_rsa.pub
 .tmux.conf
 .zprofile
+.config/nvim/lazy-lock.json
 .zshrc
 {{ end }}
 
-{{ if not .personal }}
-.pypirc
-.psqlrc
-{{ end }}
