@@ -1,27 +1,3 @@
-[".oh-my-zsh"]
-    type = "archive"
-    url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-    exclude = [
-        "*/.*",
-        "*/templates",
-        "*/themes",
-    ]
-[".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
-    type = "archive"
-    url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-    exclude = [
-        "*/.editorconfig",
-        "*/.gitattributes",
-        "*/.github",
-        "*/.gitignore",
-    ]
-
 
 {{- if and (eq .chezmoi.os "linux") .personal (not .ephemeral) }}
 [".local/bin/age"]
