@@ -7,8 +7,11 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 {{ if stat "/home/linuxbrew/.linuxbrew/bin/brew" -}}
 fpath+=("{{ output "/home/linuxbrew/.linuxbrew/bin/brew" "--prefix" | trim }}/share/zsh/site-functions")
 
-# don't eval, it's done on bluefin already
-{{ if eq $hostname "LAPTOP-9AGS43TS" -}}
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-{{ end -}}
+
+{{   end }}
+{{ end }}
 {{ end -}}
