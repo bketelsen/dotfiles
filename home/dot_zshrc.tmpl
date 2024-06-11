@@ -40,13 +40,13 @@ alias fd=fdfind
 alias ls=eza
 {{- end }}
 {{- if lookPath "atuin" }}
-  eval "$(atuin init zsh)"
+eval "$(atuin init zsh)"
 {{- end }}
 {{- if lookPath "direnv" }}
-  eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 {{- end }}
 {{- if lookPath "starship" }}
-  eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 {{- end }}
 
 
