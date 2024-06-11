@@ -8,7 +8,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 fpath+=("{{ output "/home/linuxbrew/.linuxbrew/bin/brew" "--prefix" | trim }}/share/zsh/site-functions")
 
 # don't eval, it's done on bluefin already
-{{-   if eq $hostname "beast" -}}
-{{-     $personal = true -}}
+{{-   if eq $hostname "LAPTOP-9AGS43TS" -}}
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ end -}}
 {{ end -}}
