@@ -28,10 +28,7 @@ set -eufo pipefail
      "pkg-config"
      "ripgrep"
      "shellcheck"
-     "starship"
-     "superfile"
-     "wget"
-     "xz" -}}
+     "wget" -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}
