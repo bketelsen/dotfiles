@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# scratch clones a git repository into the ~/projects/scratch directory
+scratch() {
+    local scratch_dir=~/projects/scratch
+    # get the first argument
+    local repo=$1
+    # make sure the repository argument is not empty
+    if [ -z "$repo" ]; then
+        echo "Please provide a repository to clone"
+        return
+    fi
+    # check if the scratch directory exists
+    if [ -d "$scratch_dir" ]; then
+        # clone the repository into the scratch directory
+        git clone $repo $scratch_dir
+        echo "Cloned $repo to $scratch_dir"
+        cd $scratch_dir/$repo
+    else
+        echo "Scratch directory $scratch_dir does not exist"
+    fi
+
+
+
+}
+
+# scratchrm removes a git repository from the ~/projects/scratch directory
+scratchrm() {
+    local scratch_dir=~/projects/scratch
+    # get the first argument
+    local repo=$1
+    # check if the scratch directory exists
+    if [ -d "$scratch_dir" ]; then
+        # remove the repository from the scratch directory
+        rm -rf $scratch_dir/$repo
+        echo "Removed $repo from $scratch_dir"
+    else
+        echo "Scratch directory $scratch_dir does not exist"
+    fi
+
+}
