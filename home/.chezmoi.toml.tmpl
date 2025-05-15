@@ -3,10 +3,6 @@
 {{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
 {{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
 {{- "" -}}
-encryption = "age"
-[age]
-    identity = "~/.config/chezmoi/key.txt"
-    recipient = "age1hkvrypjfxj0shj40j9s63v8n4czgzgt6rhjxgcp0fsw9lr6l63jsp0zs2a"
 
 
 {{- $osID := .chezmoi.os -}}
@@ -52,6 +48,11 @@ encryption = "age"
 {{- end -}}
 
 {{- $email := "bketelsen@gmail.com" -}}
+
+encryption = "age"
+[age]
+    identity = "~/.config/chezmoi/key.txt"
+    recipient = "age1hkvrypjfxj0shj40j9s63v8n4czgzgt6rhjxgcp0fsw9lr6l63jsp0zs2a"
 
 [data]
     ephemeral = {{ $ephemeral }}
