@@ -1,0 +1,113 @@
+# ~/.bashrc
+# Interactive shell configuration for bash
+# Sourced for interactive shells only
+
+# ============================================================================
+# Non-Interactive Shell Guard
+# ============================================================================
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# ============================================================================
+# Homebrew Environment (Linux only)
+# ============================================================================
+
+{{- if eq .chezmoi.os "linux" }}
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+{{- end }}
+
+# ============================================================================
+# PATH Management (with deduplication)
+# ============================================================================
+
+# Add to PATH only if not already present
+add_to_path() {
+  case ":$PATH:" in
+    *":$1:"*) ;;
+    *) PATH="$1:$PATH" ;;
+  esac
+}
+
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/bin"
+
+# ============================================================================
+# History Configuration
+# ============================================================================
+
+HISTFILE=~/.bash_history
+HISTSIZE=50000
+HISTFILESIZE=50000
+HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+
+# ============================================================================
+# Shell Options
+# ============================================================================
+
+shopt -s checkwinsize  # Update LINES and COLUMNS after each command
+shopt -s globstar 2>/dev/null  # ** matches recursively (bash 4+)
+
+# ============================================================================
+# Tool Integrations (conditional on tool existence)
+# ============================================================================
+
+# Starship prompt
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init bash)"
+fi
+
+# Atuin shell history
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init bash)"
+fi
+
+# Direnv environment switching
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook bash)"
+fi
+
+# fzf fuzzy finder (disable Ctrl-R when atuin is present)
+if command -v fzf >/dev/null 2>&1; then
+  if command -v atuin >/dev/null 2>&1; then
+    export FZF_CTRL_R_COMMAND=""
+  fi
+  eval "$(fzf --bash)"
+fi
+
+# ============================================================================
+# functions.d Sourcing
+# ============================================================================
+
+if [ -d "$HOME/.bash/functions.d" ]; then
+  for func_file in "$HOME/.bash/functions.d"/*.sh; do
+    if [ -f "$func_file" ]; then
+      source "$func_file"
+    fi
+  done
+fi
+
+# ============================================================================
+# Login Shell Status Display
+# ============================================================================
+
+if shopt -q login_shell; then
+  echo "Shell: bash $BASH_VERSION"
+  echo ""
+  echo "Tools:"
+  command -v starship >/dev/null 2>&1 && echo "  + starship" || echo "  - starship (not found)"
+  command -v atuin >/dev/null 2>&1 && echo "  + atuin" || echo "  - atuin (not found)"
+  command -v direnv >/dev/null 2>&1 && echo "  + direnv" || echo "  - direnv (not found)"
+  command -v fzf >/dev/null 2>&1 && echo "  + fzf" || echo "  - fzf (not found)"
+  echo ""
+  echo "Aliases:"
+  command -v bat >/dev/null 2>&1 && echo "  + cat -> bat" || echo "  - bat (not found)"
+  command -v eza >/dev/null 2>&1 && echo "  + ls -> eza" || echo "  - eza (not found)"
+  command -v fd >/dev/null 2>&1 && echo "  + find -> fd" || echo "  - fd (not found)"
+  echo ""
+fi
