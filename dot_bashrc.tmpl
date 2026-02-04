@@ -57,6 +57,10 @@ shopt -s globstar 2>/dev/null  # ** matches recursively (bash 4+)
 # Tool Integrations (conditional on tool existence)
 # ============================================================================
 
+# blesh
+
+[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
+
 # Starship prompt
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init bash)"
@@ -64,6 +68,7 @@ fi
 
 # Atuin shell history
 if command -v atuin >/dev/null 2>&1; then
+
   eval "$(atuin init bash)"
 fi
 
@@ -111,3 +116,5 @@ if shopt -q login_shell; then
   command -v fd >/dev/null 2>&1 && echo "  + find -> fd" || echo "  - fd (not found)"
   echo ""
 fi
+
+[[ ! ${BLE_VERSION-} ]] || ble-attach

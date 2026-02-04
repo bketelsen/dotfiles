@@ -1,0 +1,47 @@
+#!/bin/bash
+# ble.sh Installation Script for Chezmoi
+#
+# Installs ble.sh (Bash Line Editor) which provides:
+# - Syntax highlighting for bash
+# - Auto-suggestions
+# - Enhanced line editing
+#
+# Script naming convention:
+#   run_once  - Only runs once per machine
+#   before    - Runs before other chezmoi operations
+#   01-       - Runs after age key setup, before package installation
+
+set -e
+
+BLESH_DIR="{{ .chezmoi.homeDir }}/.local/share/blesh"
+
+# Idempotent: skip if already installed
+if [ -d "$BLESH_DIR" ]; then
+    echo "[blesh] ble.sh already installed at $BLESH_DIR"
+    echo "[blesh] Skipping installation"
+    exit 0
+fi
+
+echo "[blesh] Installing ble.sh..."
+
+# Create temp directory for download
+TEMP_DIR=$(mktemp -d)
+cd "$TEMP_DIR"
+
+# Download latest nightly release
+echo "[blesh] Downloading ble-nightly.tar.xz..."
+wget -q https://github.com/akinomyoga/ble.sh/releases/download/nightly/ble-nightly.tar.xz
+
+# Extract
+echo "[blesh] Extracting..."
+tar xJf ble-nightly.tar.xz
+
+# Install to ~/.local/share
+echo "[blesh] Installing to {{ .chezmoi.homeDir }}/.local/share..."
+bash ble-nightly/ble.sh --install {{ .chezmoi.homeDir }}/.local/share
+
+# Cleanup
+cd -
+rm -rf "$TEMP_DIR"
+
+echo "[blesh] ble.sh installed successfully!"
