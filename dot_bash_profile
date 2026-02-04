@@ -1,0 +1,8 @@
+# ~/.bash_profile
+# Login shells source this file, then we source .bashrc for consistency.
+# This ensures all interactive bash shells get the same configuration.
+
+# Source .bashrc if it exists
+if [ -f "$HOME/.bashrc" ]; then
+    source "$HOME/.bashrc"
+fi
