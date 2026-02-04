@@ -60,10 +60,10 @@ Plans:
   2. Platform-specific files are included or ignored based on OS detection
   3. Homebrew paths are correctly configured for Apple Silicon, Intel Mac, and Linux
   4. Same dotfiles repository produces working configuration on Mac laptop, Linux desktop, and Linux servers
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] TBD after planning
+- [ ] 03-01-PLAN.md - Platform detection infrastructure (config templates, .chezmoiignore)
 
 ### Phase 4: Tool Installation
 **Goal**: CLI tools are installed declaratively via Homebrew with cross-platform package lists
@@ -104,6 +104,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Foundation & Bootstrap | 1/1 | Complete | 2026-02-04 |
 | 2. Encryption & Secrets | 3/3 | Complete | 2026-02-04 |
-| 3. Cross-Platform Support | 0/TBD | Not started | - |
+| 3. Cross-Platform Support | 0/1 | In Progress | - |
 | 4. Tool Installation | 0/TBD | Not started | - |
 | 5. Shell Configuration | 0/TBD | Not started | - |
