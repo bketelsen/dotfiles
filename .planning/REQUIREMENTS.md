@@ -17,10 +17,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Encryption
 
-- [ ] **ENCR-01**: Sensitive files are encrypted with age before committing to repository
-- [ ] **ENCR-02**: age encryption is configured and keys are generated during initial setup
-- [ ] **ENCR-03**: Bitwarden CLI is integrated for runtime secret retrieval
-- [ ] **ENCR-04**: Key backup procedure is documented (how to backup and restore age keys)
+- [x] **ENCR-01**: Sensitive files are encrypted with age before committing to repository
+- [x] **ENCR-02**: age encryption is configured and keys are generated during initial setup
+- [x] **ENCR-03**: Bitwarden CLI is integrated for runtime secret retrieval
+- [x] **ENCR-04**: Key backup procedure is documented (how to backup and restore age keys)
 
 ### Shell
 
@@ -75,15 +75,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| BOOT-01 | Phase 1 | Pending |
-| BOOT-02 | Phase 1 | Pending |
-| BOOT-03 | Phase 1 | Pending |
-| BOOT-04 | Phase 1 | Pending |
-| BOOT-05 | Phase 1 | Pending |
-| ENCR-01 | Phase 2 | Pending |
-| ENCR-02 | Phase 2 | Pending |
-| ENCR-03 | Phase 2 | Pending |
-| ENCR-04 | Phase 2 | Pending |
+| BOOT-01 | Phase 1 | Complete |
+| BOOT-02 | Phase 1 | Complete |
+| BOOT-03 | Phase 1 | Complete |
+| BOOT-04 | Phase 1 | Complete |
+| BOOT-05 | Phase 1 | Complete |
+| ENCR-01 | Phase 2 | Complete |
+| ENCR-02 | Phase 2 | Complete |
+| ENCR-03 | Phase 2 | Complete |
+| ENCR-04 | Phase 2 | Complete |
 | PLAT-01 | Phase 3 | Pending |
 | PLAT-02 | Phase 3 | Pending |
 | PLAT-03 | Phase 3 | Pending |
