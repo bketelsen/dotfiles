@@ -5,23 +5,23 @@
 See: .planning/PROJECT.md (updated 2026-02-04)
 
 **Core value:** One command takes a fresh machine to a fully working environment
-**Current focus:** Phase 4 - Tool Installation
+**Current focus:** Phase 5 - Shell Configuration
 
 ## Current Position
 
-Phase: 4 of 5 (Tool Installation) - COMPLETE
-Plan: 1 of 1 in current phase
-Status: Phase verified, ready for Phase 5
-Last activity: 2026-02-04 — Phase 4 verified
+Phase: 5 of 5 (Shell Configuration)
+Plan: 1 of 3 in current phase
+Status: In progress
+Last activity: 2026-02-04 — Completed 05-01-PLAN.md
 
-Progress: [████████░░] 80%
+Progress: [████████░░] 85%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6
-- Average duration: 1.3 min
-- Total execution time: 0.13 hours
+- Total plans completed: 7
+- Average duration: 1.4 min
+- Total execution time: 0.17 hours
 
 **By Phase:**
 
@@ -31,9 +31,10 @@ Progress: [████████░░] 80%
 | 02-encryption-secrets | 3 | 4min | 1.3min |
 | 03-cross-platform-support | 1 | 2min | 2min |
 | 04-tool-installation | 1 | 1min | 1min |
+| 05-shell-configuration | 1 | 2min | 2min |
 
 **Recent Trend:**
-- Last 5 plans: 1min, 2min, 1min, 2min, 1min
+- Last 5 plans: 2min, 1min, 2min, 1min, 2min
 - Trend: Consistent fast execution
 
 *Updated after each plan completion*
@@ -66,6 +67,9 @@ Recent decisions affecting current work:
 - starship symbol-only modules: Show language symbol without version (04-01)
 - atuin local-only mode: No sync, fuzzy search, sensitive command filtering (04-01)
 - git rebase workflow: pull.rebase=true, push.default=current (04-01)
+- eza over exa: exa unmaintained, eza is active fork (05-01)
+- Cached HOMEBREW_PREFIX: Hardcoded per-OS for fast startup (05-01)
+- typeset -U path: Zsh-native PATH deduplication (05-01)
 
 ### Pending Todos
 
@@ -78,5 +82,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: Phase 4 verified, ready for Phase 5 planning
+Stopped at: Completed 05-01-PLAN.md (shell enhancement packages)
 Resume file: None
