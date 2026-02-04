@@ -30,10 +30,10 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Bootstrap script installs chezmoi and runs init/apply without manual intervention
   4. Bootstrap scripts can be safely re-run multiple times without side effects
   5. Bootstrap failures display clear error messages indicating what went wrong
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] TBD after planning
+- [ ] 01-01-PLAN.md - Bootstrap infrastructure (bootstrap.sh, README, chezmoi config)
 
 ### Phase 2: Encryption & Secrets
 **Goal**: Sensitive files are encrypted with age and secrets can be retrieved from Bitwarden at runtime
@@ -96,11 +96,11 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Bootstrap | 0/TBD | Not started | - |
+| 1. Foundation & Bootstrap | 0/1 | Planned | - |
 | 2. Encryption & Secrets | 0/TBD | Not started | - |
 | 3. Cross-Platform Support | 0/TBD | Not started | - |
 | 4. Tool Installation | 0/TBD | Not started | - |
