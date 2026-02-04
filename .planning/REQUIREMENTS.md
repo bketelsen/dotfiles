@@ -40,10 +40,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Cross-Platform
 
-- [ ] **PLAT-01**: Templates detect OS (macOS vs Linux) and adjust configuration accordingly
-- [ ] **PLAT-02**: Platform-specific files are handled via .chezmoiignore or separate templates
-- [ ] **PLAT-03**: Homebrew paths are correctly set for both platforms (Apple Silicon, Intel, Linux)
-- [ ] **PLAT-04**: Configuration works identically on Mac laptop, Linux desktop, and Linux servers
+- [x] **PLAT-01**: Templates detect OS (macOS vs Linux) and adjust configuration accordingly
+- [x] **PLAT-02**: Platform-specific files are handled via .chezmoiignore or separate templates
+- [x] **PLAT-03**: Homebrew paths are correctly set for both platforms (Apple Silicon, Intel, Linux)
+- [x] **PLAT-04**: Configuration works identically on Mac laptop, Linux desktop, and Linux servers
 
 ## v2 Requirements
 
@@ -84,10 +84,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ENCR-02 | Phase 2 | Complete |
 | ENCR-03 | Phase 2 | Complete |
 | ENCR-04 | Phase 2 | Complete |
-| PLAT-01 | Phase 3 | Pending |
-| PLAT-02 | Phase 3 | Pending |
-| PLAT-03 | Phase 3 | Pending |
-| PLAT-04 | Phase 3 | Pending |
+| PLAT-01 | Phase 3 | Complete |
+| PLAT-02 | Phase 3 | Complete |
+| PLAT-03 | Phase 3 | Complete |
+| PLAT-04 | Phase 3 | Complete |
 | TOOL-01 | Phase 4 | Pending |
 | TOOL-02 | Phase 4 | Pending |
 | TOOL-03 | Phase 4 | Pending |
