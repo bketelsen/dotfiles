@@ -25,9 +25,9 @@ encryption = "age"
 [age]
     # Path to the private key for decryption
     identity = "{{ .chezmoi.homeDir }}/.config/chezmoi/key.txt"
-    # Public key for encryption - UPDATE THIS after running key generation script
+    # Public key for encryption (public keys are safe to commit - they only encrypt, not decrypt)
     # Run: chezmoi apply (triggers key generation), then copy public key here
-    recipient = "PLACEHOLDER_PUBLIC_KEY"
+    recipient = "age1nj43c5dnmdh8uzkap7yg38082aheu205tsa7yfe48q5gk7ru6vgswtyluv"  # pragma: allowlist secret
 
 # Bitwarden CLI integration
 # https://www.chezmoi.io/user-guide/password-managers/bitwarden/

@@ -5,7 +5,7 @@ set -e
 
 echo "Installing packages via Homebrew..."
 
-{{ .homebrew_prefix }}/bin/brew bundle --file=/dev/stdin --no-lock <<'BREWFILE'
+{{ .homebrew_prefix }}/bin/brew bundle --file=/dev/stdin <<'BREWFILE'
 # Homebrew Bundle
 # https://github.com/Homebrew/homebrew-bundle
 
