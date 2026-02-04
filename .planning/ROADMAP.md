@@ -12,7 +12,7 @@ Transform a fresh machine into a fully configured development environment with a
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation & Bootstrap** - One-command setup with Homebrew installation
+- [x] **Phase 1: Foundation & Bootstrap** - One-command setup with Homebrew installation
 - [ ] **Phase 2: Encryption & Secrets** - age encryption and Bitwarden integration
 - [ ] **Phase 3: Cross-Platform Support** - OS detection and platform-specific handling
 - [ ] **Phase 4: Tool Installation** - Declarative package management for CLI tools
@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 1 plan
 
 Plans:
-- [ ] 01-01-PLAN.md - Bootstrap infrastructure (bootstrap.sh, README, chezmoi config)
+- [x] 01-01-PLAN.md - Bootstrap infrastructure (bootstrap.sh, README, chezmoi config)
 
 ### Phase 2: Encryption & Secrets
 **Goal**: Sensitive files are encrypted with age and secrets can be retrieved from Bitwarden at runtime
@@ -100,7 +100,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation & Bootstrap | 0/1 | Planned | - |
+| 1. Foundation & Bootstrap | 1/1 | Complete | 2026-02-04 |
 | 2. Encryption & Secrets | 0/TBD | Not started | - |
 | 3. Cross-Platform Support | 0/TBD | Not started | - |
 | 4. Tool Installation | 0/TBD | Not started | - |
