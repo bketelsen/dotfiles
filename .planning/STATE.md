@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-04)
 ## Current Position
 
 Phase: 5 of 5 (Shell Configuration)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In progress
-Last activity: 2026-02-04 — Completed 05-01-PLAN.md
+Last activity: 2026-02-04 — Completed 05-02-PLAN.md
 
-Progress: [████████░░] 85%
+Progress: [█████████░] 90%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7
+- Total plans completed: 8
 - Average duration: 1.4 min
-- Total execution time: 0.17 hours
+- Total execution time: 0.18 hours
 
 **By Phase:**
 
@@ -31,10 +31,10 @@ Progress: [████████░░] 85%
 | 02-encryption-secrets | 3 | 4min | 1.3min |
 | 03-cross-platform-support | 1 | 2min | 2min |
 | 04-tool-installation | 1 | 1min | 1min |
-| 05-shell-configuration | 1 | 2min | 2min |
+| 05-shell-configuration | 2 | 3min | 1.5min |
 
 **Recent Trend:**
-- Last 5 plans: 2min, 1min, 2min, 1min, 2min
+- Last 5 plans: 1min, 2min, 1min, 2min, 1min
 - Trend: Consistent fast execution
 
 *Updated after each plan completion*
@@ -70,6 +70,9 @@ Recent decisions affecting current work:
 - eza over exa: exa unmaintained, eza is active fork (05-01)
 - Cached HOMEBREW_PREFIX: Hardcoded per-OS for fast startup (05-01)
 - typeset -U path: Zsh-native PATH deduplication (05-01)
+- fzf Ctrl-R disabled when atuin present: Prevents keybinding conflict (05-02)
+- zsh-syntax-highlighting MUST be last: Required by the plugin (05-02)
+- Daily completion caching: Balance freshness vs startup speed (05-02)
 
 ### Pending Todos
 
@@ -82,5 +85,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: Completed 05-01-PLAN.md (shell enhancement packages)
+Stopped at: Completed 05-02-PLAN.md (zshrc configuration)
 Resume file: None
