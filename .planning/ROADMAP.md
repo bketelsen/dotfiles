@@ -44,10 +44,12 @@ Plans:
   2. age encryption keys are generated during initial setup and stored securely
   3. Bitwarden CLI can retrieve secrets at runtime for template expansion
   4. Key backup and recovery procedures are documented and testable
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] TBD after planning
+- [ ] 02-01-PLAN.md - Age encryption and Bitwarden integration configuration
+- [ ] 02-02-PLAN.md - Pre-commit secret detection hooks
+- [ ] 02-03-PLAN.md - Encryption and recovery documentation
 
 ### Phase 3: Cross-Platform Support
 **Goal**: Configuration templates detect OS and adapt automatically for macOS and Linux
@@ -101,7 +103,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation & Bootstrap | 1/1 | Complete | 2026-02-04 |
-| 2. Encryption & Secrets | 0/TBD | Not started | - |
+| 2. Encryption & Secrets | 0/3 | Planned | - |
 | 3. Cross-Platform Support | 0/TBD | Not started | - |
 | 4. Tool Installation | 0/TBD | Not started | - |
 | 5. Shell Configuration | 0/TBD | Not started | - |
