@@ -10,18 +10,18 @@ See: .planning/PROJECT.md (updated 2026-02-04)
 ## Current Position
 
 Phase: 4 of 5 (Tool Installation)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-02-04 — Phase 3 complete, verified
+Plan: 1 of 1 in current phase
+Status: Phase complete
+Last activity: 2026-02-04 — Completed 04-01-PLAN.md
 
-Progress: [██████░░░░] 60%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5
-- Average duration: 1.4 min
-- Total execution time: 0.12 hours
+- Total plans completed: 6
+- Average duration: 1.3 min
+- Total execution time: 0.13 hours
 
 **By Phase:**
 
@@ -30,9 +30,10 @@ Progress: [██████░░░░] 60%
 | 01-foundation-bootstrap | 1 | 1min | 1min |
 | 02-encryption-secrets | 3 | 4min | 1.3min |
 | 03-cross-platform-support | 1 | 2min | 2min |
+| 04-tool-installation | 1 | 1min | 1min |
 
 **Recent Trend:**
-- Last 5 plans: 1min, 1min, 2min, 1min, 2min
+- Last 5 plans: 1min, 2min, 1min, 2min, 1min
 - Trend: Consistent fast execution
 
 *Updated after each plan completion*
@@ -61,6 +62,10 @@ Recent decisions affecting current work:
 - Apple Silicon only: Intel Mac (darwin+amd64) explicitly blocked (03-01)
 - Homebrew prefix in [data] section: accessible via {{ .homebrew_prefix }} (03-01)
 - Inverted chezmoiignore logic: use `ne` operator to include on specific platform (03-01)
+- Embedded Brewfile heredoc: Keeps Brewfile inline with run_onchange script (04-01)
+- starship symbol-only modules: Show language symbol without version (04-01)
+- atuin local-only mode: No sync, fuzzy search, sensitive command filtering (04-01)
+- git rebase workflow: pull.rebase=true, push.default=current (04-01)
 
 ### Pending Todos
 
@@ -73,5 +78,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: Phase 3 verified, ready for Phase 4 planning
+Stopped at: Completed 04-01-PLAN.md
 Resume file: None
