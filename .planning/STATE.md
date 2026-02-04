@@ -10,28 +10,29 @@ See: .planning/PROJECT.md (updated 2026-02-04)
 ## Current Position
 
 Phase: 2 of 5 (Encryption & Secrets)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-02-04 — Phase 1 complete, verified
+Plan: 1 of TBD in current phase
+Status: In progress
+Last activity: 2026-02-04 — Completed 02-01-PLAN.md
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
+- Total plans completed: 2
 - Average duration: 1 min
-- Total execution time: 0.02 hours
+- Total execution time: 0.03 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation-bootstrap | 1 | 1min | 1min |
+| 02-encryption-secrets | 1 | 1min | 1min |
 
 **Recent Trend:**
-- Last 5 plans: 1min
-- Trend: First plan complete
+- Last 5 plans: 1min, 1min
+- Trend: Consistent fast execution
 
 *Updated after each plan completion*
 
@@ -49,6 +50,9 @@ Recent decisions affecting current work:
 - POSIX sh compatibility: Use /bin/sh for maximum portability (01-01)
 - Idempotent operations: All installs check existence first (01-01)
 - File logging: Log to ~/.dotfiles-bootstrap.log for debugging (01-01)
+- Chezmoi builtin age: Use chezmoi's built-in age, not standalone binary (02-01)
+- Bitwarden unlock = auto: Session-aware authentication (02-01)
+- run_once_before_00 pattern: First-time setup scripts (02-01)
 
 ### Pending Todos
 
@@ -61,5 +65,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: Phase 1 complete, ready for Phase 2 planning
+Stopped at: Completed 02-01-PLAN.md
 Resume file: None
