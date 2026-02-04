@@ -16,10 +16,17 @@ brew "starship"   # Cross-shell prompt
 brew "atuin"      # Shell history search
 brew "bat"        # cat with syntax highlighting
 brew "direnv"     # Per-directory environment variables
+brew "fzf"        # Fuzzy finder for files, history
+brew "eza"        # Modern ls replacement
+brew "fd"         # Modern find replacement
 
 {{ if eq .chezmoi.os "darwin" -}}
 # macOS-only: Nerd Font for starship icons
 cask "font-meslo-lg-nerd-font"
+
+# macOS-only: zsh plugins (installed via Homebrew)
+brew "zsh-autosuggestions"      # Fish-like command suggestions
+brew "zsh-syntax-highlighting"  # Real-time syntax validation
 {{ end -}}
 BREWFILE
 
