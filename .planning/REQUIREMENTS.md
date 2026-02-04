@@ -32,11 +32,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Tools
 
-- [ ] **TOOL-01**: starship prompt is configured with sensible cross-shell defaults
-- [ ] **TOOL-02**: atuin is configured for shell history sync and search
-- [ ] **TOOL-03**: bat is configured as cat replacement with syntax highlighting
-- [ ] **TOOL-04**: direnv is configured for per-directory environment variables
-- [ ] **TOOL-05**: Git is configured with sensible defaults (.gitconfig)
+- [x] **TOOL-01**: starship prompt is configured with sensible cross-shell defaults
+- [x] **TOOL-02**: atuin is configured for shell history sync and search
+- [x] **TOOL-03**: bat is configured as cat replacement with syntax highlighting
+- [x] **TOOL-04**: direnv is configured for per-directory environment variables
+- [x] **TOOL-05**: Git is configured with sensible defaults (.gitconfig)
 
 ### Cross-Platform
 
@@ -88,11 +88,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PLAT-02 | Phase 3 | Complete |
 | PLAT-03 | Phase 3 | Complete |
 | PLAT-04 | Phase 3 | Complete |
-| TOOL-01 | Phase 4 | Pending |
-| TOOL-02 | Phase 4 | Pending |
-| TOOL-03 | Phase 4 | Pending |
-| TOOL-04 | Phase 4 | Pending |
-| TOOL-05 | Phase 4 | Pending |
+| TOOL-01 | Phase 4 | Complete |
+| TOOL-02 | Phase 4 | Complete |
+| TOOL-03 | Phase 4 | Complete |
+| TOOL-04 | Phase 4 | Complete |
+| TOOL-05 | Phase 4 | Complete |
 | SHEL-01 | Phase 5 | Pending |
 | SHEL-02 | Phase 5 | Pending |
 | SHEL-03 | Phase 5 | Pending |
