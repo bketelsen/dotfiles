@@ -1,7 +1,7 @@
 #!/bin/sh
 # Dotfiles Bootstrap Script
 # This script installs Homebrew and chezmoi, then applies dotfiles configuration
-# Can be run via: sh -c "$(curl -fsSL https://raw.githubusercontent.com/bjk/dotfiles/main/bootstrap.sh)"
+# Can be run via: sh -c "$(curl -fsSL https://raw.githubusercontent.com/bketelsen/dotfiles/main/bootstrap.sh)"
 
 set -e
 
