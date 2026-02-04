@@ -13,6 +13,7 @@ alias gaa='git add --all'
 alias gc='git commit'
 alias gcmsg='git commit -m'
 alias gca='git commit --amend'
+alias gcs='git commit -s -m'
 
 # Pushing and pulling
 alias gp='git push'
