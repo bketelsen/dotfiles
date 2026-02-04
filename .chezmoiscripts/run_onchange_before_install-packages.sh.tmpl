@@ -1,0 +1,26 @@
+#!/bin/sh
+# Declarative package installation via Homebrew
+# run_onchange ensures this re-runs when Brewfile content changes
+set -e
+
+echo "Installing packages via Homebrew..."
+
+{{ .homebrew_prefix }}/bin/brew bundle --file=/dev/stdin --no-lock <<'BREWFILE'
+# Homebrew Bundle
+# https://github.com/Homebrew/homebrew-bundle
+
+tap "homebrew/bundle"
+
+# CLI Tools
+brew "starship"   # Cross-shell prompt
+brew "atuin"      # Shell history search
+brew "bat"        # cat with syntax highlighting
+brew "direnv"     # Per-directory environment variables
+
+{{ if eq .chezmoi.os "darwin" -}}
+# macOS-only: Nerd Font for starship icons
+cask "font-meslo-lg-nerd-font"
+{{ end -}}
+BREWFILE
+
+echo "Package installation complete."
