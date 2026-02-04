@@ -103,12 +103,12 @@ The following items require human testing on actual machines:
 
 #### 1. Fresh Machine Bootstrap Test
 
-**Test:** 
+**Test:**
 1. Start with a completely fresh macOS or Linux machine (no Homebrew, no chezmoi installed)
 2. Run: `sh -c "$(curl -fsSL https://raw.githubusercontent.com/bjk/dotfiles/main/bootstrap.sh)"`
 3. Wait for completion
 
-**Expected:** 
+**Expected:**
 - Script completes without errors
 - Homebrew is installed and available in PATH
 - chezmoi is installed and available in PATH
