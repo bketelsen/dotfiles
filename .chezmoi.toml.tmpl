@@ -1,6 +1,25 @@
 # Chezmoi configuration
 # https://www.chezmoi.io/reference/configuration-file/
 
+# CRITICAL: encryption must be at top level, before any sections
+encryption = "age"
+
+# Age encryption configuration
+# https://www.chezmoi.io/user-guide/encryption/
+[age]
+    # Path to the private key for decryption
+    identity = "{{ .chezmoi.homeDir }}/.config/chezmoi/key.txt"
+    # Public key for encryption - UPDATE THIS after running key generation script
+    # Run: chezmoi apply (triggers key generation), then copy public key here
+    recipient = "PLACEHOLDER_PUBLIC_KEY"
+
+# Bitwarden CLI integration
+# https://www.chezmoi.io/user-guide/password-managers/bitwarden/
+[bitwarden]
+    # "auto" only prompts for master password if BW_SESSION not already set
+    unlock = "auto"
+
+# Custom data for templates
 [data]
     # Will be populated in later phases
 
