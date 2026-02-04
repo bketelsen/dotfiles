@@ -1,0 +1,61 @@
+# Git configuration
+# https://git-scm.com/docs/git-config
+
+[user]
+    # Override these locally or via includeIf for work/personal
+    name = PLACEHOLDER
+    email = PLACEHOLDER
+
+[init]
+    defaultBranch = main
+
+[push]
+    default = current
+    autoSetupRemote = true
+
+[pull]
+    rebase = true
+
+[fetch]
+    prune = true
+
+[rebase]
+    autoStash = true
+
+[diff]
+    colorMoved = zebra
+
+[merge]
+    conflictStyle = diff3
+
+[core]
+    excludesFile = ~/.gitignore_global
+
+[alias]
+    # Status
+    s = status -s
+    st = status
+
+    # Diff
+    d = diff
+    dc = diff --cached
+    ds = diff --stat
+
+    # Branch
+    br = branch
+    co = checkout
+    cob = checkout -b
+    branches = branch -vv
+
+    # Commit
+    ci = commit
+    ca = commit --amend
+
+    # Log
+    l = log --oneline -20
+    lg = log --oneline --graph --decorate -20
+    last = log -1 HEAD --stat
+
+    # Undo
+    undo = reset HEAD~1 --mixed
+    unstage = reset HEAD --
