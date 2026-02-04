@@ -1,3 +1,13 @@
+# Requirements Archive: v1 MVP
+
+**Archived:** 2026-02-04
+**Status:** ✅ SHIPPED
+
+This is the archived requirements specification for v1.
+For current requirements, see `.planning/REQUIREMENTS.md` (created for next milestone).
+
+---
+
 # Requirements: Dotfiles
 
 **Defined:** 2026-02-04
@@ -45,9 +55,9 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **PLAT-03**: Homebrew paths are correctly set for both platforms (Apple Silicon, Intel, Linux)
 - [x] **PLAT-04**: Configuration works identically on Mac laptop, Linux desktop, and Linux servers
 
-## v2 Requirements
+## v2 Requirements (Deferred)
 
-Deferred to future release. Tracked but not in current roadmap.
+Tracked but not in v1 scope.
 
 ### Advanced Features
 
@@ -70,8 +80,6 @@ Explicitly excluded. Documented to prevent scope creep.
 | Fish shell | Not used on target machines (zsh on Mac, bash on Linux) |
 
 ## Traceability
-
-Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
@@ -101,9 +109,19 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 **Coverage:**
 - v1 requirements: 23 total
-- Mapped to phases: 23
-- Unmapped: 0 ✓
+- Shipped: 23/23 (100%)
+- Adjusted: 0
+- Dropped: 0
 
 ---
-*Requirements defined: 2026-02-04*
-*Last updated: 2026-02-04 after roadmap creation*
+
+## Milestone Summary
+
+**Shipped:** 23 of 23 v1 requirements
+**Adjusted:** None
+**Dropped:** None
+
+All requirements delivered as originally specified. No scope changes during implementation.
+
+---
+*Archived: 2026-02-04 as part of v1 milestone completion*

@@ -5,89 +5,45 @@
 See: .planning/PROJECT.md (updated 2026-02-04)
 
 **Core value:** One command takes a fresh machine to a fully working environment
-**Current focus:** Milestone complete
+**Current focus:** v1 complete — ready for next milestone
 
 ## Current Position
 
-Phase: 5 of 5 (Shell Configuration) - COMPLETE
-Plan: 4 of 4 in current phase
-Status: All phases complete, milestone ready for audit
-Last activity: 2026-02-04 — Phase 5 verified
+Phase: v1 complete (5 phases shipped)
+Plan: N/A — milestone complete
+Status: Ready for next milestone
+Last activity: 2026-02-04 — v1 milestone shipped
 
-Progress: [██████████] 100%
+Progress: [██████████] 100% (v1)
 
 ## Performance Metrics
 
-**Velocity:**
+**v1 Milestone:**
 - Total plans completed: 10
 - Average duration: 1.2 min
 - Total execution time: 0.20 hours
-
-**By Phase:**
-
-| Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| 01-foundation-bootstrap | 1 | 1min | 1min |
-| 02-encryption-secrets | 3 | 4min | 1.3min |
-| 03-cross-platform-support | 1 | 2min | 2min |
-| 04-tool-installation | 1 | 1min | 1min |
-| 05-shell-configuration | 4 | 5min | 1.25min |
-
-**Recent Trend:**
-- Last 5 plans: 1min, 2min, 1min, 2min, 1min
-- Trend: Consistent fast execution
-
-*Updated after each plan completion*
+- Commits: 63
+- Lines of config: 856
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Recent decisions affecting current work:
-
-- Homebrew on Linux: Using Homebrew on both platforms for consistency
-- age over GPG: Simpler encryption with better chezmoi integration
-- Single setup (no profiles): Simplicity for v1, can add profiles later
-- Modular functions.d pattern: Easy to add/remove shell functions
-- POSIX sh compatibility: Use /bin/sh for maximum portability (01-01)
-- Idempotent operations: All installs check existence first (01-01)
-- File logging: Log to ~/.dotfiles-bootstrap.log for debugging (01-01)
-- Chezmoi builtin age: Use chezmoi's built-in age, not standalone binary (02-01)
-- Bitwarden unlock = auto: Session-aware authentication (02-01)
-- run_once_before_00 pattern: First-time setup scripts (02-01)
-- Homebrew for pre-commit tools: Use brew for detect-secrets/pre-commit (02-02)
-- Standard code quality hooks: Include trailing-whitespace, yaml-check, etc. (02-02)
-- docs/ directory pattern: Detailed documentation in docs/, README links to it (02-03)
-- Recovery-first documentation: Key loss scenarios documented prominently (02-03)
-- Apple Silicon only: Intel Mac (darwin+amd64) explicitly blocked (03-01)
-- Homebrew prefix in [data] section: accessible via {{ .homebrew_prefix }} (03-01)
-- Inverted chezmoiignore logic: use `ne` operator to include on specific platform (03-01)
-- Embedded Brewfile heredoc: Keeps Brewfile inline with run_onchange script (04-01)
-- starship symbol-only modules: Show language symbol without version (04-01)
-- atuin local-only mode: No sync, fuzzy search, sensitive command filtering (04-01)
-- git rebase workflow: pull.rebase=true, push.default=current (04-01)
-- eza over exa: exa unmaintained, eza is active fork (05-01)
-- Cached HOMEBREW_PREFIX: Hardcoded per-OS for fast startup (05-01)
-- typeset -U path: Zsh-native PATH deduplication (05-01)
-- fzf Ctrl-R disabled when atuin present: Prevents keybinding conflict (05-02)
-- zsh-syntax-highlighting MUST be last: Required by the plugin (05-02)
-- Daily completion caching: Balance freshness vs startup speed (05-02)
-- POSIX case statement for PATH dedup: Portable bash PATH membership check (05-03)
-- shopt -q login_shell: Bash-specific login shell detection (05-03)
-- Identical zsh/bash function files: Same content for maintainability (05-04)
-- Conditional modern CLI aliases: Only activate if tool installed (05-04)
+All v1 decisions documented in PROJECT.md Key Decisions table with outcomes marked ✓ Good.
 
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
-None yet.
+None.
 
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: All 5 phases complete, milestone ready for audit
+Stopped at: v1 milestone complete
 Resume file: None
+
+---
+*Updated: 2026-02-04 after v1 milestone completion*
