@@ -75,10 +75,10 @@ Plans:
   3. bat replaces cat with syntax highlighting and configured theme
   4. direnv automatically loads per-directory environment variables
   5. Git uses custom configuration from dotfiles (.gitconfig, .gitignore_global)
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] TBD after planning
+- [ ] 04-01-PLAN.md - Declarative package installation and tool configuration
 
 ### Phase 5: Shell Configuration
 **Goal**: Both zsh (macOS) and bash (Linux) are fully configured with modular function directories
@@ -105,5 +105,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Foundation & Bootstrap | 1/1 | Complete | 2026-02-04 |
 | 2. Encryption & Secrets | 3/3 | Complete | 2026-02-04 |
 | 3. Cross-Platform Support | 1/1 | Complete | 2026-02-04 |
-| 4. Tool Installation | 0/TBD | Not started | - |
+| 4. Tool Installation | 0/1 | Planned | - |
 | 5. Shell Configuration | 0/TBD | Not started | - |
