@@ -1,6 +1,22 @@
 # Chezmoi configuration
 # https://www.chezmoi.io/reference/configuration-file/
 
+# Platform validation - fail fast on unsupported configurations
+{{- if and (ne .chezmoi.os "darwin") (ne .chezmoi.os "linux") }}
+{{- fail (printf "Unsupported OS: detected %s, only darwin and linux are supported" .chezmoi.os) }}
+{{- end }}
+{{- if and (eq .chezmoi.os "darwin") (ne .chezmoi.arch "arm64") }}
+{{- fail (printf "Unsupported macOS architecture: detected %s, only arm64 (Apple Silicon) is supported" .chezmoi.arch) }}
+{{- end }}
+
+# Compute Homebrew prefix based on platform
+{{- $homebrewPrefix := "" }}
+{{- if eq .chezmoi.os "darwin" }}
+{{-   $homebrewPrefix = "/opt/homebrew" }}
+{{- else if eq .chezmoi.os "linux" }}
+{{-   $homebrewPrefix = "/home/linuxbrew/.linuxbrew" }}
+{{- end }}
+
 # CRITICAL: encryption must be at top level, before any sections
 encryption = "age"
 
@@ -21,7 +37,7 @@ encryption = "age"
 
 # Custom data for templates
 [data]
-    # Will be populated in later phases
+    homebrew_prefix = "{{ $homebrewPrefix }}"
 
 # Source directory (where chezmoi reads from)
 sourceDir = "{{ .chezmoi.sourceDir }}"
