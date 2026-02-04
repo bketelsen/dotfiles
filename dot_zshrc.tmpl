@@ -1,0 +1,102 @@
+# ~/.zshrc
+# Interactive shell configuration for zsh
+# Sourced for interactive shells only
+
+# Profiling (uncomment to debug startup time)
+# zmodload zsh/zprof
+# To use: uncomment above, start shell, run `zprof`
+
+# ============================================================================
+# History Configuration
+# ============================================================================
+
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+
+# ============================================================================
+# Completion System (with daily cache for fast startup)
+# ============================================================================
+
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
+# ============================================================================
+# Tool Integrations (conditional on tool existence)
+# ============================================================================
+
+# Starship prompt
+command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
+
+# Atuin shell history
+command -v atuin >/dev/null 2>&1 && eval "$(atuin init zsh)"
+
+# Direnv environment switching
+command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
+
+# fzf fuzzy finder (disable Ctrl-R when atuin is present)
+if command -v fzf >/dev/null 2>&1; then
+  if command -v atuin >/dev/null 2>&1; then
+    export FZF_CTRL_R_COMMAND=""
+  fi
+  eval "$(fzf --zsh)"
+fi
+
+# ============================================================================
+# functions.d Sourcing
+# ============================================================================
+
+if [[ -d "$HOME/.zsh/functions.d" ]]; then
+  for func_file in $HOME/.zsh/functions.d/*.sh(N); do
+    source "$func_file"
+  done
+fi
+
+# ============================================================================
+# Shell Plugins (macOS only, via Homebrew)
+# ============================================================================
+
+{{- if eq .chezmoi.os "darwin" }}
+# zsh-autosuggestions
+if [[ -f $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+  source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+{{- end }}
+
+# ============================================================================
+# Login Shell Status Display
+# ============================================================================
+
+if [[ -o login ]]; then
+  echo "Shell: zsh $(zsh --version | cut -d' ' -f2)"
+  echo ""
+  echo "Tools:"
+  command -v starship >/dev/null 2>&1 && echo "  + starship" || echo "  - starship (not found)"
+  command -v atuin >/dev/null 2>&1 && echo "  + atuin" || echo "  - atuin (not found)"
+  command -v direnv >/dev/null 2>&1 && echo "  + direnv" || echo "  - direnv (not found)"
+  command -v fzf >/dev/null 2>&1 && echo "  + fzf" || echo "  - fzf (not found)"
+  echo ""
+  echo "Aliases:"
+  command -v bat >/dev/null 2>&1 && echo "  + cat -> bat" || echo "  - bat (not found)"
+  command -v eza >/dev/null 2>&1 && echo "  + ls -> eza" || echo "  - eza (not found)"
+  command -v fd >/dev/null 2>&1 && echo "  + find -> fd" || echo "  - fd (not found)"
+  echo ""
+fi
+
+# ============================================================================
+# Syntax Highlighting (MUST BE LAST)
+# ============================================================================
+
+{{- if eq .chezmoi.os "darwin" }}
+# zsh-syntax-highlighting (MUST be last)
+if [[ -f $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+  source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+{{- end }}
