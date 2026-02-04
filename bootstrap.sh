@@ -6,7 +6,7 @@
 set -e
 
 # Configuration
-GITHUB_USERNAME="bjk"
+GITHUB_USERNAME="bketelsen"
 LOG_FILE="${HOME}/.dotfiles-bootstrap.log"
 
 # Color codes (will be set by setup_colors)
