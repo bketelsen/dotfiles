@@ -90,10 +90,13 @@ Plans:
   3. Shell functions are organized in functions.d directories for easy maintenance
   4. Functions from functions.d are automatically sourced during shell startup
   5. Shared shell logic works on both zsh and bash without duplication
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- [ ] TBD after planning
+- [ ] 05-01-PLAN.md - Shell package installation and environment foundation
+- [ ] 05-02-PLAN.md - zsh configuration with tool integrations
+- [ ] 05-03-PLAN.md - bash configuration with tool integrations
+- [ ] 05-04-PLAN.md - functions.d modules (git, nav, utils)
 
 ## Progress
 
@@ -106,4 +109,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. Encryption & Secrets | 3/3 | Complete | 2026-02-04 |
 | 3. Cross-Platform Support | 1/1 | Complete | 2026-02-04 |
 | 4. Tool Installation | 1/1 | Complete | 2026-02-04 |
-| 5. Shell Configuration | 0/TBD | Not started | - |
+| 5. Shell Configuration | 0/4 | Not started | - |
