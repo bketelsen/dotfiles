@@ -1,0 +1,55 @@
+# Starship prompt configuration
+# https://starship.rs/config/
+
+add_newline = false
+
+# Minimal format: directory + git + command duration + character
+format = """
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$python\
+$nodejs\
+$rust\
+$golang\
+$character"""
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+format = "[$branch]($style) "
+style = "purple"
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+style = "red"
+staged = "[+$count](green)"
+modified = "[~$count](yellow)"
+untracked = "[?$count](blue)"
+ahead = "[⇡$count](cyan)"
+behind = "[⇣$count](cyan)"
+
+[cmd_duration]
+min_time = 2000
+format = "[$duration]($style) "
+style = "yellow"
+
+[character]
+success_symbol = "[>](green)"
+error_symbol = "[>](red)"
+
+# Language modules: show symbol only, no version
+[python]
+format = 'via [$symbol]($style)'
+
+[nodejs]
+format = 'via [$symbol]($style)'
+
+[rust]
+format = 'via [$symbol]($style)'
+
+[golang]
+format = 'via [$symbol]($style)'

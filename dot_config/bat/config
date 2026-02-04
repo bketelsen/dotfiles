@@ -1,0 +1,7 @@
+# bat configuration
+# https://github.com/sharkdp/bat#configuration-file
+
+--theme="Nord"
+--paging=auto
+--style=numbers
+--decorations=auto
