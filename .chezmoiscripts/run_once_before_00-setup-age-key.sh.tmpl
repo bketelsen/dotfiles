@@ -1,0 +1,64 @@
+#!/bin/sh
+# Age Key Generation Script for Chezmoi
+#
+# This script runs ONCE on first chezmoi apply to generate an age encryption key.
+# The key is used to encrypt/decrypt sensitive dotfiles stored in the repository.
+#
+# Script naming convention:
+#   run_once  - Only runs if this file's hash changes
+#   before    - Runs before other chezmoi operations
+#   00-       - Runs first among before scripts (key must exist before decryption)
+#
+# After this script runs, you MUST:
+# 1. Copy the public key to .chezmoi.toml.tmpl recipient field
+# 2. BACKUP your private key (~/.config/chezmoi/key.txt) securely
+
+set -e
+
+KEY_FILE="{{ .chezmoi.homeDir }}/.config/chezmoi/key.txt"
+
+# Idempotent: skip if key already exists
+if [ -f "$KEY_FILE" ]; then
+    echo "[age-keygen] Key already exists at $KEY_FILE"
+    echo "[age-keygen] Skipping key generation"
+    exit 0
+fi
+
+echo "[age-keygen] Generating new age encryption key..."
+
+# Create parent directory with secure permissions
+mkdir -p "$(dirname "$KEY_FILE")"
+
+# Generate key and capture output (includes public key line)
+OUTPUT=$(chezmoi age-keygen --output="$KEY_FILE" 2>&1)
+
+# Set secure permissions on private key
+chmod 600 "$KEY_FILE"
+
+# Extract and display public key
+PUBLIC_KEY=$(echo "$OUTPUT" | grep "Public key:" | awk '{print $3}')
+
+echo "[age-keygen] Key generated successfully!"
+echo ""
+echo "[age-keygen] Public key: $PUBLIC_KEY"
+echo ""
+echo "============================================================"
+echo "IMPORTANT: BACKUP YOUR PRIVATE KEY"
+echo "============================================================"
+echo ""
+echo "Your private key is stored at:"
+echo "  $KEY_FILE"
+echo ""
+echo "REQUIRED NEXT STEPS:"
+echo ""
+echo "1. UPDATE chezmoi config with your public key:"
+echo "   Edit .chezmoi.toml.tmpl and replace PLACEHOLDER_PUBLIC_KEY with:"
+echo "   $PUBLIC_KEY"
+echo ""
+echo "2. BACKUP your private key to a secure location:"
+echo "   - Password manager (Bitwarden, 1Password)"
+echo "   - Encrypted cloud storage"
+echo "   - USB drive in secure location"
+echo ""
+echo "WARNING: If you lose this key, you CANNOT decrypt your encrypted files!"
+echo "============================================================"
