@@ -1,0 +1,41 @@
+# Chezmoi ignore file
+# https://www.chezmoi.io/reference/special-files/chezmoiignore/
+#
+# This file is processed as a template. Patterns listed here are IGNORED.
+#
+# CRITICAL: The logic is INVERTED from what you might expect!
+# - To INCLUDE a file only on macOS: ignore it when NOT darwin (use "ne")
+#   This means "ignore if NOT darwin" = "include only on darwin"
+# - Common mistake: using "eq" which does the OPPOSITE
+
+# =============================================================================
+# macOS-only files (ignored on Linux)
+# =============================================================================
+{{- if ne .chezmoi.os "darwin" }}
+# macOS Library preferences and settings
+Library/
+{{- end }}
+
+# =============================================================================
+# Linux-only files (ignored on macOS)
+# =============================================================================
+{{- if ne .chezmoi.os "linux" }}
+# X11 configuration files
+.xinitrc
+.Xresources
+{{- end }}
+
+# =============================================================================
+# Always ignored (both platforms)
+# =============================================================================
+# Planning and documentation (not dotfiles)
+.planning/
+docs/
+README.md
+
+# Bootstrap script (used for initial setup only)
+bootstrap.sh
+
+# Development tooling (not needed on target machines)
+.pre-commit-config.yaml
+.secrets.baseline
