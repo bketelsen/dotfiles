@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-02-04)
 ## Current Position
 
 Phase: 2 of 5 (Encryption & Secrets)
-Plan: 1 of TBD in current phase
+Plan: 2 of TBD in current phase
 Status: In progress
-Last activity: 2026-02-04 — Completed 02-01-PLAN.md
+Last activity: 2026-02-04 — Completed 02-02-PLAN.md
 
-Progress: [███░░░░░░░] 30%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 1 min
-- Total execution time: 0.03 hours
+- Total plans completed: 3
+- Average duration: 1.3 min
+- Total execution time: 0.07 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation-bootstrap | 1 | 1min | 1min |
-| 02-encryption-secrets | 1 | 1min | 1min |
+| 02-encryption-secrets | 2 | 3min | 1.5min |
 
 **Recent Trend:**
-- Last 5 plans: 1min, 1min
+- Last 5 plans: 1min, 1min, 2min
 - Trend: Consistent fast execution
 
 *Updated after each plan completion*
@@ -53,6 +53,8 @@ Recent decisions affecting current work:
 - Chezmoi builtin age: Use chezmoi's built-in age, not standalone binary (02-01)
 - Bitwarden unlock = auto: Session-aware authentication (02-01)
 - run_once_before_00 pattern: First-time setup scripts (02-01)
+- Homebrew for pre-commit tools: Use brew for detect-secrets/pre-commit (02-02)
+- Standard code quality hooks: Include trailing-whitespace, yaml-check, etc. (02-02)
 
 ### Pending Todos
 
@@ -65,5 +67,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-02-04
-Stopped at: Completed 02-01-PLAN.md
+Stopped at: Completed 02-02-PLAN.md
 Resume file: None
