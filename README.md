@@ -7,7 +7,7 @@ One command to configure a fresh machine.
 Run this command on a fresh macOS or Linux system:
 
 ```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/bjk/dotfiles/main/bootstrap.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/bketelsen/dotfiles/main/bootstrap.sh)"
 ```
 
 ## What This Does
@@ -55,6 +55,7 @@ If something goes wrong:
    - Disk space: Ensure you have at least 1GB free space
 
 To manually verify installations:
+
 ```bash
 # Check Homebrew
 brew --version
