@@ -9,11 +9,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Bootstrap
 
-- [ ] **BOOT-01**: User can bootstrap a fresh machine with a single curl command from the README
-- [ ] **BOOT-02**: Bootstrap installs Homebrew if not already present (macOS and Linux)
-- [ ] **BOOT-03**: Bootstrap installs chezmoi and runs init/apply automatically
-- [ ] **BOOT-04**: All bootstrap scripts are idempotent (safe to re-run without side effects)
-- [ ] **BOOT-05**: Bootstrap scripts have error handling with clear failure messages
+- [x] **BOOT-01**: User can bootstrap a fresh machine with a single curl command from the README
+- [x] **BOOT-02**: Bootstrap installs Homebrew if not already present (macOS and Linux)
+- [x] **BOOT-03**: Bootstrap installs chezmoi and runs init/apply automatically
+- [x] **BOOT-04**: All bootstrap scripts are idempotent (safe to re-run without side effects)
+- [x] **BOOT-05**: Bootstrap scripts have error handling with clear failure messages
 
 ### Encryption
 
@@ -24,11 +24,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Shell
 
-- [ ] **SHEL-01**: zsh is fully configured for macOS with prompt, aliases, and environment
-- [ ] **SHEL-02**: bash is fully configured for Linux with prompt, aliases, and environment
-- [ ] **SHEL-03**: Shell functions are organized in modular functions.d directories
-- [ ] **SHEL-04**: functions.d files are automatically sourced on shell startup
-- [ ] **SHEL-05**: Shared shell logic works across both zsh and bash where possible
+- [x] **SHEL-01**: zsh is fully configured for macOS with prompt, aliases, and environment
+- [x] **SHEL-02**: bash is fully configured for Linux with prompt, aliases, and environment
+- [x] **SHEL-03**: Shell functions are organized in modular functions.d directories
+- [x] **SHEL-04**: functions.d files are automatically sourced on shell startup
+- [x] **SHEL-05**: Shared shell logic works across both zsh and bash where possible
 
 ### Tools
 
@@ -93,11 +93,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TOOL-03 | Phase 4 | Complete |
 | TOOL-04 | Phase 4 | Complete |
 | TOOL-05 | Phase 4 | Complete |
-| SHEL-01 | Phase 5 | Pending |
-| SHEL-02 | Phase 5 | Pending |
-| SHEL-03 | Phase 5 | Pending |
-| SHEL-04 | Phase 5 | Pending |
-| SHEL-05 | Phase 5 | Pending |
+| SHEL-01 | Phase 5 | Complete |
+| SHEL-02 | Phase 5 | Complete |
+| SHEL-03 | Phase 5 | Complete |
+| SHEL-04 | Phase 5 | Complete |
+| SHEL-05 | Phase 5 | Complete |
 
 **Coverage:**
 - v1 requirements: 23 total
