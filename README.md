@@ -21,6 +21,19 @@ The bootstrap script will:
 
 Works on both macOS and Linux.
 
+## Encryption & Secrets
+
+This repository uses age encryption for sensitive files. On first setup:
+
+1. An age encryption key is automatically generated
+2. The public key is displayed - **back it up immediately**
+3. See [docs/encryption.md](docs/encryption.md) for full documentation
+
+### Important
+
+- Back up your age key to Bitwarden or another secure location
+- Without the key backup, encrypted files cannot be recovered
+
 ## Requirements
 
 - macOS or Linux operating system
