@@ -1,0 +1,24 @@
+# ~/.zshenv
+# Sourced for ALL zsh shells (interactive and non-interactive)
+# Keep minimal - only environment variables needed everywhere
+
+# Homebrew prefix (cached, not computed at runtime for fast startup)
+{{ if eq .chezmoi.os "darwin" -}}
+export HOMEBREW_PREFIX="/opt/homebrew"
+{{ else -}}
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+{{ end -}}
+
+# PATH setup with automatic deduplication
+typeset -U path
+path=(
+    $HOME/.local/bin
+    $HOME/bin
+    $HOMEBREW_PREFIX/bin
+    $HOMEBREW_PREFIX/sbin
+    $path
+)
+export PATH
+
+# Default editor
+export EDITOR="vim"
