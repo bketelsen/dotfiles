@@ -32,6 +32,7 @@ Library/
 .planning/
 docs/
 README.md
+CLAUDE.md
 
 # Bootstrap script (used for initial setup only)
 bootstrap.sh
