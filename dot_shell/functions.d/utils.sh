@@ -49,6 +49,11 @@ myip() {
   curl -s https://api.ipify.org && echo
 }
 
+# Manage dotfiles with Claude Code
+cdots() {
+  claude "$(chezmoi source-path)"
+}
+
 # Extract any archive
 extract() {
   if [ -f "$1" ]; then
