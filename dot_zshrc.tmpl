@@ -35,17 +35,11 @@ fi
 # Starship prompt
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
-# Atuin shell history
-command -v atuin >/dev/null 2>&1 && eval "$(atuin init zsh)"
-
 # Direnv environment switching
 command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
-# fzf fuzzy finder (disable Ctrl-R when atuin is present)
+# fzf fuzzy finder
 if command -v fzf >/dev/null 2>&1; then
-  if command -v atuin >/dev/null 2>&1; then
-    export FZF_CTRL_R_COMMAND=""
-  fi
   eval "$(fzf --zsh)"
 fi
 
@@ -79,7 +73,6 @@ if [[ -o login ]]; then
   echo ""
   echo "Tools:"
   command -v starship >/dev/null 2>&1 && echo "  + starship" || echo "  - starship (not found)"
-  command -v atuin >/dev/null 2>&1 && echo "  + atuin" || echo "  - atuin (not found)"
   command -v direnv >/dev/null 2>&1 && echo "  + direnv" || echo "  - direnv (not found)"
   command -v fzf >/dev/null 2>&1 && echo "  + fzf" || echo "  - fzf (not found)"
   echo ""

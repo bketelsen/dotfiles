@@ -58,19 +58,9 @@ shopt -s globstar 2>/dev/null  # ** matches recursively (bash 4+)
 # Tool Integrations (conditional on tool existence)
 # ============================================================================
 
-# blesh
-
-[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
-
 # Starship prompt
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init bash)"
-fi
-
-# Atuin shell history
-if command -v atuin >/dev/null 2>&1; then
-
-  eval "$(atuin init bash)"
 fi
 
 # Direnv environment switching
@@ -78,11 +68,8 @@ if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
 fi
 
-# fzf fuzzy finder (disable Ctrl-R when atuin is present)
+# fzf fuzzy finder
 if command -v fzf >/dev/null 2>&1; then
-  if command -v atuin >/dev/null 2>&1; then
-    export FZF_CTRL_R_COMMAND=""
-  fi
   eval "$(fzf --bash)"
 fi
 
@@ -107,7 +94,6 @@ if shopt -q login_shell; then
   echo ""
   echo "Tools:"
   command -v starship >/dev/null 2>&1 && echo "  + starship" || echo "  - starship (not found)"
-  command -v atuin >/dev/null 2>&1 && echo "  + atuin" || echo "  - atuin (not found)"
   command -v direnv >/dev/null 2>&1 && echo "  + direnv" || echo "  - direnv (not found)"
   command -v fzf >/dev/null 2>&1 && echo "  + fzf" || echo "  - fzf (not found)"
   echo ""
@@ -117,5 +103,3 @@ if shopt -q login_shell; then
   command -v fd >/dev/null 2>&1 && echo "  + find -> fd" || echo "  - fd (not found)"
   echo ""
 fi
-
-[[ ! ${BLE_VERSION-} ]] || ble-attach

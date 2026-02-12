@@ -80,7 +80,6 @@ Uses age encryption with keys at `~/.config/chezmoi/key.txt`. Files prefixed wit
 Located in `.chezmoiscripts/`:
 
 - `run_once_before_00-setup-age-key.sh.tmpl` - generates age key on first run
-- `run_once_before_01-install-blesh.sh.tmpl` - installs ble.sh for bash
 - `run_onchange_before_install-packages.sh.tmpl` - runs `brew bundle` when Brewfile changes
 
 ## Platform Support
