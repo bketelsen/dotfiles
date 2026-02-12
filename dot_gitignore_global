@@ -1,27 +1,36 @@
 # Global gitignore
+
 # https://git-scm.com/docs/gitignore
 
 # macOS
-.DS_Store
-**/.DS_Store
+
+.DS*Store
+\*\*/.DS_Store
 .AppleDouble
 .LSOverride
-._*
+.*\*
 
 # Linux
-*~
+
+\*~
 .directory
 
 # Editors
-*.swp
-*.swo
-*.swn
+
+_.swp
+_.swo
+\*.swn
 .vscode/settings.json
 .vscode/launch.json
 .idea/
 
 # Temp files
-*.tmp
-*.temp
-*.log
-*.bak
+
+_.tmp
+_.temp
+_.log
+_.bak
+
+# claude settings
+
+.claude/
