@@ -55,6 +55,26 @@ shopt -s checkwinsize  # Update LINES and COLUMNS after each command
 shopt -s globstar 2>/dev/null  # ** matches recursively (bash 4+)
 
 # ============================================================================
+# Bash Completion
+# ============================================================================
+
+# System bash-completion (not sourced by default on Debian in non-login shells)
+if [ -z "${BASH_COMPLETION_VERSINFO-}" ]; then
+  if [ -r /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -r /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+# Homebrew-installed completions
+if [ -d "${HOMEBREW_PREFIX-}/etc/bash_completion.d" ]; then
+  for comp in "$HOMEBREW_PREFIX/etc/bash_completion.d"/*; do
+    [ -r "$comp" ] && . "$comp"
+  done
+fi
+
+# ============================================================================
 # Tool Integrations (conditional on tool existence)
 # ============================================================================
 
