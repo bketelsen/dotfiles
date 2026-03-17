@@ -2,6 +2,9 @@
 # Login shells source this file, then we source .bashrc for consistency.
 # This ensures all interactive bash shells get the same configuration.
 
+# Source shared environment
+[ -f "$HOME/.shell/env.sh" ] && . "$HOME/.shell/env.sh"
+
 # Source .bashrc if it exists
 if [ -f "$HOME/.bashrc" ]; then
     source "$HOME/.bashrc"

@@ -9,6 +9,9 @@ export HOMEBREW_PREFIX="/opt/homebrew"
 export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 {{ end -}}
 
+# Source shared environment
+[[ -f "$HOME/.shell/env.sh" ]] && source "$HOME/.shell/env.sh"
+
 # PATH setup with automatic deduplication
 typeset -U path
 path=(
@@ -20,6 +23,3 @@ path=(
     $path
 )
 export PATH
-
-# Default editor
-export EDITOR="vim"

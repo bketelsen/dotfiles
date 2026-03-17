@@ -64,12 +64,15 @@ Library/   # This INCLUDES Library/ on macOS by ignoring it elsewhere
 ### Shell Configuration Structure
 
 ```
+dot_shell/env.sh           # Shared environment variables (POSIX-compatible, sourced by both shells)
 dot_shell/functions.d/     # Shared functions sourced by both bash and zsh
 dot_bash/symlink_functions.d → ../dot_shell/functions.d
 dot_zsh/symlink_functions.d  → ../dot_shell/functions.d
 ```
 
-Both shells source `~/.shell/functions.d/*.sh` for common functions (git, nav, utils).
+Both shells source `~/.shell/env.sh` for shared environment variables (EDITOR, tool-specific exports like BUN_INSTALL, cargo env). Both shells source `~/.shell/functions.d/*.sh` for common functions (git, nav, utils).
+
+**When adding new tools or environment variables**, add them to `dot_shell/env.sh` (must stay POSIX-compatible — no `[[ ]]`, no `source`, no arrays). Only use shell-specific files (`dot_bash_profile`, `dot_zshenv.tmpl`) for things requiring shell-specific syntax or chezmoi templating (e.g., HOMEBREW_PREFIX).
 
 ### Encryption
 
