@@ -33,4 +33,4 @@ _.bak
 
 # claude settings
 
-.claude/
+.claude/settings.local.json
