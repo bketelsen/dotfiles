@@ -17,8 +17,12 @@
 {{-   $homebrewPrefix = "/home/linuxbrew/.linuxbrew" }}
 {{- end }}
 
-# CRITICAL: encryption must be at top level, before any sections
+# CRITICAL: top-level keys must come before any [section] header —
+# anything after one parses as part of that section and is ignored as config
 encryption = "age"
+
+# Source directory (where chezmoi reads from)
+sourceDir = "{{ .chezmoi.sourceDir }}"
 
 # Age encryption configuration
 # https://www.chezmoi.io/user-guide/encryption/
@@ -38,6 +42,3 @@ encryption = "age"
 # Custom data for templates
 [data]
     homebrew_prefix = "{{ $homebrewPrefix }}"
-
-# Source directory (where chezmoi reads from)
-sourceDir = "{{ .chezmoi.sourceDir }}"
