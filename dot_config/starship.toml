@@ -9,6 +9,7 @@ $hostname\
 $directory\
 $git_branch\
 $git_status\
+${custom.chezmoi}\
 $cmd_duration\
 $python\
 $nodejs\
@@ -59,3 +60,10 @@ format = 'via [$symbol]($style)'
 
 [golang]
 format = 'via [$symbol]($style)'
+
+# Shows when ~/.cache/chezmoi-drift exists (written by ~/.shell/functions.d/chezmoi-drift.sh)
+[custom.chezmoi]
+when = 'test -f "${XDG_CACHE_HOME:-$HOME/.cache}/chezmoi-drift"'
+format = '[⚠ dotfiles]($style) '
+style = "bold yellow"
+shell = ["sh"]

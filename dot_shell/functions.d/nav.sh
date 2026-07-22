@@ -12,7 +12,7 @@ alias ~='cd ~'
 alias dl='cd ~/Downloads'
 alias dt='cd ~/Desktop'
 alias dev='cd ~/dev'
-alias dots='cd ~/.local/share/chezmoi'
+alias dots='cd "$(chezmoi source-path)"'
 
 # Directory stack (pushd/popd shortcuts)
 alias d='dirs -v'

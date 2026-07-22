@@ -7,6 +7,7 @@ set -e
 
 # Configuration
 GITHUB_USERNAME="bketelsen"
+DOTFILES_DIR="${HOME}/projects/dotfiles"
 LOG_FILE="${HOME}/.dotfiles-bootstrap.log"
 
 # Color codes (will be set by setup_colors)
@@ -132,8 +133,8 @@ install_chezmoi() {
 apply_dotfiles() {
     log "Applying dotfiles configuration..."
 
-    if ! chezmoi init --apply "$GITHUB_USERNAME" >> "$LOG_FILE" 2>&1; then
-        abort "Failed to apply dotfiles" "Check $LOG_FILE for details or try 'chezmoi init --apply $GITHUB_USERNAME' manually"
+    if ! chezmoi init --apply --source "$DOTFILES_DIR" "$GITHUB_USERNAME" >> "$LOG_FILE" 2>&1; then
+        abort "Failed to apply dotfiles" "Check $LOG_FILE for details or try 'chezmoi init --apply --source $DOTFILES_DIR $GITHUB_USERNAME' manually"
     fi
 
     log "Dotfiles applied successfully"
