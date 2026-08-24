@@ -84,6 +84,11 @@ if command -v starship >/dev/null 2>&1; then
   eval "$(starship init bash)"
 fi
 
+# mise tool/runtime version manager (activate before direnv so direnv wins in .envrc dirs)
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate bash)"
+fi
+
 # Direnv environment switching
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook bash)"
@@ -116,6 +121,7 @@ if shopt -q login_shell; then
   echo "Tools:"
   command -v starship >/dev/null 2>&1 && echo "  + starship" || echo "  - starship (not found)"
   command -v direnv >/dev/null 2>&1 && echo "  + direnv" || echo "  - direnv (not found)"
+  command -v mise >/dev/null 2>&1 && echo "  + mise" || echo "  - mise (not found)"
   command -v fzf >/dev/null 2>&1 && echo "  + fzf" || echo "  - fzf (not found)"
   echo ""
   echo "Aliases:"

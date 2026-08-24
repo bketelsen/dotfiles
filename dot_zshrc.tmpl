@@ -35,6 +35,9 @@ fi
 # Starship prompt
 command -v starship >/dev/null 2>&1 && eval "$(starship init zsh)"
 
+# mise tool/runtime version manager (activate before direnv so direnv wins in .envrc dirs)
+command -v mise >/dev/null 2>&1 && eval "$(mise activate zsh)"
+
 # Direnv environment switching
 command -v direnv >/dev/null 2>&1 && eval "$(direnv hook zsh)"
 
@@ -74,6 +77,7 @@ if [[ -o login ]]; then
   echo "Tools:"
   command -v starship >/dev/null 2>&1 && echo "  + starship" || echo "  - starship (not found)"
   command -v direnv >/dev/null 2>&1 && echo "  + direnv" || echo "  - direnv (not found)"
+  command -v mise >/dev/null 2>&1 && echo "  + mise" || echo "  - mise (not found)"
   command -v fzf >/dev/null 2>&1 && echo "  + fzf" || echo "  - fzf (not found)"
   echo ""
   echo "Aliases:"

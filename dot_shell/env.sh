@@ -11,3 +11,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 # cargo/rust
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
+
+# Snowcat MCP token (minted on selfie:snowcat; see docs/design/queue-operations.md → Run workers)
+[ -r "$HOME/.config/snowcat/mcp-token.env" ] && . "$HOME/.config/snowcat/mcp-token.env"

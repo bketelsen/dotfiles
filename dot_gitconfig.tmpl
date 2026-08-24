@@ -59,3 +59,11 @@
     # Undo
     undo = reset HEAD~1 --mixed
     unstage = reset HEAD --
+
+# GitHub auth via gh CLI (gh resolved from PATH; works for brew and ~/.local/bin installs)
+[credential "https://github.com"]
+    helper =
+    helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+    helper =
+    helper = !gh auth git-credential
