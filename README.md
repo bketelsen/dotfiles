@@ -17,6 +17,7 @@ The bootstrap script will:
 - Install Homebrew (if not already present)
 - Install chezmoi dotfiles manager via Homebrew
 - Apply dotfiles configuration from this repository
+- Install cross-platform CLI tools via mise
 - Configure your shell and development environment
 
 Works on both macOS and Linux.
@@ -62,6 +63,10 @@ brew --version
 
 # Check chezmoi
 chezmoi --version
+
+# Check mise-managed tools
+mise doctor
+mise ls
 
 # Check applied dotfiles
 chezmoi status

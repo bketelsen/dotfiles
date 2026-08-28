@@ -72,7 +72,7 @@ dot_zsh/symlink_functions.d  → ../dot_shell/functions.d
 
 Both shells source `~/.shell/env.sh` for shared environment variables (EDITOR, tool-specific exports like BUN_INSTALL, cargo env). Both shells source `~/.shell/functions.d/*.sh` for common functions (git, nav, utils).
 
-**When adding new tools or environment variables**, add them to `dot_shell/env.sh` (must stay POSIX-compatible — no `[[ ]]`, no `source`, no arrays). Only use shell-specific files (`dot_bash_profile`, `dot_zshenv.tmpl`) for things requiring shell-specific syntax or chezmoi templating (e.g., HOMEBREW_PREFIX).
+**When adding cross-platform CLI tools**, prefer `dot_config/mise/config.toml`. Use Homebrew only for bootstrap dependencies, system packages, GUI apps, fonts, and platform-specific tools. Add shared environment variables to `dot_shell/env.sh` (must stay POSIX-compatible — no `[[ ]]`, no `source`, no arrays). Only use shell-specific files (`dot_bash_profile`, `dot_zshenv.tmpl`) for things requiring shell-specific syntax or chezmoi templating (e.g., HOMEBREW_PREFIX).
 
 ### Encryption
 
@@ -83,7 +83,7 @@ Uses age encryption with keys at `~/.config/chezmoi/key.txt`. Files prefixed wit
 Located in `.chezmoiscripts/`:
 
 - `run_once_before_00-setup-age-key.sh.tmpl` - generates age key on first run
-- `run_onchange_before_install-packages.sh.tmpl` - runs `brew bundle` when Brewfile changes
+- `run_onchange_after_install-packages.sh.tmpl` - installs platform packages with Homebrew and CLI tools with mise
 
 ## Platform Support
 

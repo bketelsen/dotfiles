@@ -1,0 +1,28 @@
+#!/bin/sh
+# Install system packages with Homebrew, then development tools with mise.
+# mise config hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
+set -e
+
+echo "Installing bootstrap and platform packages via Homebrew..."
+
+{{ .homebrew_prefix }}/bin/brew bundle --file=/dev/stdin <<'BREWFILE'
+# Homebrew Bundle
+# https://github.com/Homebrew/homebrew-bundle
+
+# mise bootstraps the cross-platform CLI tools in ~/.config/mise/config.toml.
+brew "mise"
+
+{{ if eq .chezmoi.os "darwin" -}}
+# macOS-only: Nerd Font for starship icons
+cask "font-meslo-lg-nerd-font"
+
+# macOS-only: zsh plugins (installed via Homebrew)
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+{{ end -}}
+BREWFILE
+
+echo "Installing CLI tools via mise..."
+MISE_YES=1 {{ .homebrew_prefix }}/bin/mise install
+
+echo "Package installation complete."

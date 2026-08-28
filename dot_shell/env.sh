@@ -5,6 +5,9 @@
 # Default editor
 export EDITOR="vim"
 
+# mise-managed tools (also available to non-interactive shells)
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
