@@ -1,9 +1,12 @@
 [tools]
+"aqua:openai/codex" = "0.150.1"
 bat = "latest"
 direnv = "latest"
 eza = "latest"
 fd = "latest"
 fzf = "latest"
 gh = "latest"
+"github:github/copilot-cli" = "1.0.80"
+node = "24.19.0"
 ripgrep = "latest"
 starship = "latest"
